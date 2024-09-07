@@ -28,4 +28,9 @@ public class Employee {
     @Column(name="department_id")
     private Integer department_id;
 
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
+
+
 }

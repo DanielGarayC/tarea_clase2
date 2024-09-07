@@ -17,4 +17,8 @@ public class Department {
 
     @Column(name="location_id")
     private Integer location_id;
+
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
 }
