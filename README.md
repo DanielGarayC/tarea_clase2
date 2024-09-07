@@ -1,2 +1,1 @@
-Daniel chambea mrd
-Creditos a jacorvi
+Daniel chambea mrd | Creditos a jacorvi
