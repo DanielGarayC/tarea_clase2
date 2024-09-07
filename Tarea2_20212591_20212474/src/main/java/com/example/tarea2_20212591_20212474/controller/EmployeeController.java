@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -42,23 +43,22 @@ public class EmployeeController {
         return "infoEmpleado";
     }
     @GetMapping("/delete")
-    public String borrarEmpleado(Model model, @RequestParam("id") int id) {
-
+    public String borrarEmpleado(Model model, @RequestParam("id") int id, RedirectAttributes redirectAttributes) {
         Optional<Employee> optEmployee = employeeRepository.findById(id);
 
         if (optEmployee.isPresent()) {
             try {
                 employeeRepository.deleteById(id);
-                model.addAttribute("exito", "Se borró el empleado");
-
+                redirectAttributes.addFlashAttribute("exito", "Se borró el empleado correctamente.");
             } catch (Exception e) {
-                model.addAttribute("error", "No se puede borrar el empleado");
-                return "redirect:/employee/list";
+                redirectAttributes.addFlashAttribute("error", "No se puede borrar el empleado.");
             }
         } else {
-            model.addAttribute("error", "Empleado no encontrado.");
+            redirectAttributes.addFlashAttribute("error", "Empleado no encontrado.");
         }
+        // Redirigimos de vuelta a la lista de empleados
         return "redirect:/employee/list";
     }
+
 
 }
