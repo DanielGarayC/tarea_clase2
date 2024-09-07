@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
 @Table(name="departments")
@@ -13,10 +14,9 @@ public class Department {
     private Integer department_id;
 
     @Column(name="department_name",nullable = false,length = 30)
-    private Integer department_name;
+    private String department_name;
 
-    @Column(name="location_id")
-    private Integer location_id;
+
 
     @ManyToOne
     @JoinColumn(name = "location_id")

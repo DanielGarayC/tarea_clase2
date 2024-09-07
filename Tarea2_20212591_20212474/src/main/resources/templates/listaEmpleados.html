@@ -28,8 +28,8 @@
             <tbody>
             <tr th:each="employee, info : ${employeeList}">
                 <td th:text="${info.index + 1}"></td>
-                <td th:text="${employee.last_name}, ${employee.last_name}"></td>
-                <td th:text="${employee.correo}"></td>
+                <td th:text="${employee.last_name + ', ' + employee.first_name}"></td> <!-- Corrección aquí -->
+                <td th:text="${employee.email}"></td>
                 <td>
                     <span class="badge bg-secondary" th:text="${employee.department.getDepartment_name()}"></span> <!-- Estilo de departamento -->
                 </td>
@@ -43,6 +43,7 @@
                     </a>
                 </td>
             </tr>
+
             </tbody>
         </table>
     </div>

@@ -2,7 +2,7 @@ package com.example.tarea2_20212591_20212474.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
+@Entity
 @Getter
 @Setter
 @Table(name="employees")
@@ -22,11 +22,10 @@ public class Employee {
     @Column(name="email",length = 25)
     private String email;
 
-    @Column(name="job_id",nullable = false)
-    private Integer job_id;
+    @Column(name="job_id",nullable = false, length = 10)
+    private String job_id;
 
-    @Column(name="department_id")
-    private Integer department_id;
+
 
     @ManyToOne
     @JoinColumn(name = "department_id")
