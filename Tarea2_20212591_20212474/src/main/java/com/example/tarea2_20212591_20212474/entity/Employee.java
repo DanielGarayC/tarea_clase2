@@ -22,8 +22,9 @@ public class Employee {
     @Column(name="email",length = 25)
     private String email;
 
-    @Column(name="job_id",nullable = false, length = 10)
-    private String job_id;
+    @ManyToOne
+    @JoinColumn(name = "job_id")
+    private Job job;
 
 
 
