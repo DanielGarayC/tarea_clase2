@@ -56,7 +56,6 @@ public class EmployeeController {
         } else {
             redirectAttributes.addFlashAttribute("error", "Empleado no encontrado.");
         }
-        // Redirigimos de vuelta a la lista de empleados
         return "redirect:/employee/list";
     }
 
