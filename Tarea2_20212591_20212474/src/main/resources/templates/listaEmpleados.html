@@ -26,19 +26,19 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="employee, info : ${lista}">
+            <tr th:each="employee, info : ${employeeList}">
                 <td th:text="${info.index + 1}"></td>
-                <td th:text="${employee.name}"></td>
+                <td th:text="${employee.last_name}, ${employee.last_name}"></td>
                 <td th:text="${employee.correo}"></td>
                 <td>
-                    <span class="badge bg-secondary" th:text="${employee.departamento}"></span> <!-- Estilo de departamento -->
+                    <span class="badge bg-secondary" th:text="${employee.department.getDepartment_name()}"></span> <!-- Estilo de departamento -->
                 </td>
-                <td th:text="${employee.ciudad}"></td>
+                <td th:text="${employee.department.getLocation().getCity()}"></td>
                 <td>
-                    <a class="btn btn-sm btn-outline-primary" th:href="@{'/shipper/edit?id=' + ${employee.shipperId}}">
+                    <a class="btn btn-sm btn-outline-primary" th:href="@{'/shipper/edit?id=' + ${employee.employee_id}}">
                         <i class="fas fa-eye"></i>
                     </a>
-                    <a class="btn btn-sm btn-outline-danger" th:href="@{'/shipper/delete?id=' + ${employee.shipperId}}">
+                    <a class="btn btn-sm btn-outline-danger" th:href="@{'/shipper/delete?id=' + ${employee.employee_id}}">
                         <i class="fas fa-trash"></i>
                     </a>
                 </td>
